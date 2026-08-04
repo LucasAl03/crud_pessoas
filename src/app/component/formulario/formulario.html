@@ -1,0 +1,36 @@
+<div id="div-form">
+    <form id="form-pessoa">
+        <label for="nome">Nome*</label>
+        <input type="text" name="nome" id="nome" class="elem-form-01" required  maxlength="60" placeholder="Seu nome">
+
+        <label for="email">Email*</label>
+        <input type="text" name="email" id="email" class="elem-form-01" required  maxlength="60" placeholder="Seu email">
+
+        <label for="cpf">CPF*</label>
+        <input type="number" name="cpf" id="cpf" class="elem-form-02" required  maxlength="11" placeholder="Seu cpf">
+
+        <label for="data-nascimento">Data Nascimento*</label>
+        <input type="date" name="data-nascimento" id="data-nascimento" class="elem-form-02" required>
+
+        <label for="uf">UF*</label>
+        <select name="uf" id="uf" class="elem-form-02">
+            <option value="">UF</option>
+            <option value="SE">SE</option>
+            <option value="BA">BA</option>
+            <option value="AL">AL</option>
+        </select>
+
+        <label for="cidade">Cidade*</label>
+        <select name="cidade" id="cidade" class="elem-form-02">
+            <option value="">Cidade</option>
+            <option value="Aracaju">Aracaju</option>
+            <option value="São Cristovão">São Cristovão</option>
+            <option value="Barra dos Coqueiros">Barra dos Coqueiros</option>
+        </select>
+
+        <div id="div-btns">
+            <button type="button" id="btnSalvar">Salvar</button>
+            <button type="reset" id="btnLimpar">Limpar</button>
+        </div>
+    </form>
+</div>
