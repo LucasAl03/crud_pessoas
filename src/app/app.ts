@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Menu } from './menu/menu';
+import { Menu } from './component/menu/menu';
 import { Formulario } from './component/formulario/formulario';
 import { HomeComponent } from './component/home-component/home-component';
 
