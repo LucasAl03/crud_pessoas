@@ -1,0 +1,7 @@
+#cabecalho{
+    background-color: var(--primaria);
+    width: 1000px;
+    height: 100px;
+    margin: 8px;
+    padding: 20px;
+}
