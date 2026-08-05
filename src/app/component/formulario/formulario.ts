@@ -24,5 +24,16 @@ export class Formulario {
       cpf: this.cpf,
       dataNascimento: this.dataNascimento,
     })
+
+    this.limparAtributos()
   }
+
+limparAtributos(){
+  this.nome = ''
+  this.email = ''
+  this.cpf = ''
+  this.dataNascimento = ''
 }
+}
+
+
