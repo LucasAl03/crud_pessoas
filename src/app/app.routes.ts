@@ -17,7 +17,7 @@ export const routes: Routes = [
     {
         path: 'cadastro',
         component: Formulario
-    }
+    },
     {
         path: 'lista',
         component: Lista
