@@ -13,7 +13,7 @@ export class PessoaService {
         this.pessoas.push(pessoa)
     }
 
-    listar(){
+    listar(): Pessoa[]{
         return this.pessoas
     }
 }
