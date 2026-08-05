@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
-  imports: [PessoaService, FormsModule],
+  imports: [FormsModule],
   templateUrl: './formulario.html',
   styleUrl: './formulario.css',
 })
