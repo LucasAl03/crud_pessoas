@@ -1,0 +1,37 @@
+#div-lista{
+    width: 980px;
+    min-height: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    color: var(--primaria);
+}
+
+h1{
+    text-align: center;
+    padding: 20px 0px;
+    letter-spacing: 5px;
+}
+
+.div-item-pessoa, .item-pessoa .btns-lista{
+    display: flex;
+    align-items: center;
+}
+
+.div-item-pessoa{
+    width: 100%;
+    height: 100px;
+    margin: 20px 0px;
+    padding: 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--primaria);
+}
+
+.item-pessoa{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+}
+
