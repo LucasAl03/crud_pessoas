@@ -16,4 +16,8 @@ export class PessoaService {
     listar(): Pessoa[]{
         return this.pessoas
     }
+
+    tamanhoArray(){
+        return this.pessoas.length
+    }
 }
