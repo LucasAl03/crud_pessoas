@@ -68,10 +68,10 @@ a:hover {
 }
 
 .lnk-editar {
-    background-color: var(--primaria);
+    background-color: var(--botao02);
     color: var(--branca);
 }
 
 .lnk-excluir {
-    background-color: var(--cor-botao01);
+    background-color: var(--botao01);
 }
