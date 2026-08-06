@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PessoaService } from '../../services/pessoa-service';
 import { Pessoa } from '../../models/pessoa';
+import { arrRemove } from 'rxjs/internal/util/arrRemove';
 
 @Component({
   selector: 'app-lista',
@@ -16,6 +17,6 @@ export class Lista {
   }
 
   excluirItem(){
-    
+   
   }
 }
