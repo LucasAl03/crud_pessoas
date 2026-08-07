@@ -7,7 +7,7 @@
         <input type="text" name="email" id="email" class="elem-form-01" required  maxlength="60" [(ngModel)]="email" placeholder="Seu email">
 
         <label for="cpf">CPF*</label>
-        <input type="text" name="cpf" id="cpf" class="elem-form-02" required  maxlength="11" [(ngModel)]="cpf" placeholder="Seu cpf">
+        <input type="number" name="cpf" id="cpf" class="elem-form-02" required  max="99999999999" [(ngModel)]="cpf" placeholder="Seu cpf">
 
         <label for="dataNascimento">Data Nascimento*</label>
         <input type="date" name="dataNascimento" id="dataNascimento" class="elem-form-02" [(ngModel)]="dataNascimento" required>
