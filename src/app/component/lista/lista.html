@@ -8,8 +8,8 @@
                     {{elem.id}} - {{elem.nome}} - {{elem.cpf}} - {{elem.dataNascimento}} - {{elem.email}}
                 </span>
                 <span class="btns-lista">
-                    <a href="#" class="lnk-editar"> Editar </a>
-                    <a href="#" class="lnk-excluir" (click)="excluirItem()"> Excluir </a>
+                    <a href="#" class="lnk-editar" (click)="buscarPorId(elem)"> Editar </a>
+                    <a href="#" class="lnk-excluir" (click)="excluir(elem)"> Excluir </a>
                 </span>
             </div>
         }@empty{
