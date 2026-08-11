@@ -52,6 +52,7 @@ export class Lista {
 
   // Navega para a tela de edição da pessoa selecionada.
   buscarPorId(pObjPessoa: Pessoa) {
+    confirm('Deseja editar as informações dessa pessoa?')
 
     // Redireciona para a rota "/cadastro/:id".
     this.router.navigate(['/cadastro', pObjPessoa.id]);
