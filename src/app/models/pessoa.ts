@@ -1,9 +1,12 @@
+import { UF } from "./uf"
+import { Municipio } from "./municipio"
+
 export class Pessoa{
     id?: number
     nome?: string
     email?: string
-    cpf?: number
+    cpf?: string
     dataNascimento?: string
-    uf?: string
-    cidade?: string
+    uf?: UF
+    municipio?: Municipio
 }
