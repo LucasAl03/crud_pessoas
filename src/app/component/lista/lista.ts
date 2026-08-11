@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 
 // Importa o serviço responsável por gerenciar as pessoas.
-import { PessoaService } from '../../services/pessoa-service';
+import { PessoaService } from '../../services/pessoa/pessoa-service';
 
 // Importa o modelo Pessoa.
 import { Pessoa } from '../../models/pessoa';
