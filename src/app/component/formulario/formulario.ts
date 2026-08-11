@@ -165,7 +165,6 @@ export class Formulario {
 
     } else if(pessoa.nome === '' || pessoa.email === '' || pessoa.cpf.length != 11 || pessoa.dataNascimento === '' || pessoa.uf === undefined || pessoa.municipio === undefined){
       alert('Nenhum campo pode estar vazio ou preenchido incorretamente!')
-
       return;
     } else {
 
