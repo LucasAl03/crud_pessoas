@@ -1,7 +1,7 @@
 //IMPORTA O DECORATOS INJECTABLE DO ANGULAR
 import { Injectable } from '@angular/core';
 //IMPORTA O MODELO PESSOA
-import { Pessoa } from '../models/pessoa';
+import { Pessoa } from '../../models/pessoa';
 //IMPORTA A FUNÇÃO 'of' DO RxJS PARA RETORNAR UM OBSERVABLE
 import { of } from 'rxjs';
 
