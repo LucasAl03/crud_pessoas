@@ -8,10 +8,19 @@ import { FormsModule } from '@angular/forms';
 import { Pessoa } from '../../models/pessoa';
 
 // Importa o serviço responsável por gerenciar as pessoas.
-import { PessoaService } from '../../services/pessoa-service';
+import { PessoaService } from '../../services/pessoa/pessoa-service';
 
 // Importa o ActivatedRoute para acessar parâmetros da URL.
 import { ActivatedRoute } from '@angular/router';
+
+// Importa o service de UfMunicipios
+import { UfMunicipios } from '../../services/uf-municipios/uf-municipios';
+
+// Importa o modelo de UF
+import { UF } from '../../models/uf';
+
+// Importa o modelo de Municipio
+import { Municipio } from '../../models/municipio';
 
 @Component({
   // Define o seletor do componente.
@@ -32,10 +41,12 @@ export class Formulario {
   id = 0;
   nome = '';
   email = '';
-  cpf = 0.0;
+  cpf = '';
   dataNascimento = '';
-  cidade = '';
-  uf = '';
+  uf?: UF;
+  municipio?: Municipio
+  ufs: UF[] = [];
+  municipios: Municipio[] = [];
 
   // Armazena o ID da pessoa em edição.
   idPessoaEdit = 0;
@@ -46,7 +57,8 @@ export class Formulario {
   // Injeta o serviço de rotas e o serviço de pessoas.
   constructor(
     private route: ActivatedRoute,
-    private pessoaService: PessoaService
+    private pessoaService: PessoaService,
+    private ufMunicipioService: UfMunicipios
   ) { }
 
   // Salva uma nova pessoa.
@@ -78,16 +90,22 @@ export class Formulario {
   limparAtributos() {
     this.nome = '';
     this.email = '';
-    this.cpf = 0.0;
+    this.cpf = '';
     this.dataNascimento = '';
+    this.uf = undefined;
+    this.municipio = undefined;
+    this.ufs = [];
+    this.municipios = [];
   }
 
   // Carrega os dados da pessoa nos campos do formulário.
   carregaAtributos(pessoa: Pessoa) {
-    this.nome = String(pessoa.nome);
-    this.email = String(pessoa.email);
-    this.cpf = Number(pessoa.cpf);
-    this.dataNascimento = String(pessoa.dataNascimento);
+    this.nome = String(pessoa.nome)
+    this.email = String(pessoa.email)
+    this.cpf = String(pessoa.cpf)
+    this.dataNascimento = String(pessoa.dataNascimento)
+    this.uf = pessoa.uf
+    this.municipio = pessoa.municipio
   }
 
   // Executado quando o componente é inicializado.
@@ -113,8 +131,10 @@ export class Formulario {
             this.carregaAtributos({ ...objPessoa });
           }
 
-        });
+        })
     }
+
+    this.carregarUF()
   }
 
   // Salva ou atualiza uma pessoa.
@@ -124,10 +144,12 @@ export class Formulario {
     const pessoa = new Pessoa();
 
     // Preenche os atributos.
-    pessoa.nome = this.nome;
-    pessoa.email = this.email;
-    pessoa.cpf = this.cpf;
-    pessoa.dataNascimento = this.dataNascimento;
+    pessoa.nome = this.nome
+    pessoa.email = this.email
+    pessoa.cpf = this.cpf
+    pessoa.dataNascimento = this.dataNascimento
+    pessoa.uf = this.uf
+    pessoa.municipio = this.municipio
 
     // Verifica se está editando ou cadastrando.
     if (this.edit) {
@@ -152,6 +174,36 @@ export class Formulario {
 
     // Limpa os campos após salvar.
     this.limparAtributos();
+  }
+
+  carregarUF(){
+    this.ufMunicipioService.listarUF().subscribe({
+      next: (dadosUF) => {
+        this.ufs = [...dadosUF].sort((a, b) => a.nome.localeCompare(b.nome))
+      },
+      error: (msgErro) => {
+        console.log('Erro ao listar UFs: ', msgErro)
+      }
+    })
+  }
+
+  carregarMunicipios() {
+    if (!this.uf){
+      this.municipios = [];
+      this.municipio = undefined;
+
+      return;
+    }
+
+    this.ufMunicipioService.listarMunicipiosIBGE(this.uf.id).subscribe({
+      next: (dados) => {
+        this.municipios = dados;
+      },
+      error: (erro) => {
+        console.error('Erro ao carregar municípios:', erro);
+        this.municipios = [];
+      }
+    });
   }
 
   // Atualiza uma pessoa após confirmação.
