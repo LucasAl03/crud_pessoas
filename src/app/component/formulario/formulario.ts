@@ -163,6 +163,10 @@ export class Formulario {
       // Sai do modo de edição.
       this.edit = false;
 
+    } else if(pessoa.nome === '' || pessoa.email === '' || pessoa.cpf.length != 11 || pessoa.dataNascimento === '' || pessoa.uf === undefined || pessoa.municipio === undefined){
+      alert('Nenhum campo pode estar vazio ou preenchido incorretamente!')
+
+      return;
     } else {
 
       // Gera um novo ID.
