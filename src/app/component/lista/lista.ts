@@ -37,7 +37,7 @@ export class Lista {
   }
 
   // Exclui uma pessoa da lista.
-  exluir(pObjPessoa: Pessoa) {
+  excluir(pObjPessoa: Pessoa) {
 
     // Solicita confirmação antes de excluir.
     if (confirm("Tem certeza que deseja Excluir a Pessoa?")) {

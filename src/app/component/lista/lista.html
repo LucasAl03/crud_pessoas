@@ -2,14 +2,14 @@
     <h1>Lista Pessoa</h1>
 
     <div id="div-lista-pessoas">
-        @for(elem of listaPessoa(); track elem.id){
+        @for(elem of listar(); track elem.id){
             <div class="div-item-pessoa">
                 <span class="item-pessoa">
                     {{elem.id}} - {{elem.nome}} - {{elem.cpf}} - {{elem.dataNascimento}} - {{elem.email}}
                 </span>
                 <span class="btns-lista">
-                    <a href="#" class="lnk-editar" (click)="buscarPorId(elem)"> Editar </a>
-                    <a href="#" class="lnk-excluir" (click)="excluir(elem)"> Excluir </a>
+                    <a class="lnk-editar" (click)="buscarPorId(elem)"> Editar </a>
+                    <a class="lnk-excluir" (click)="excluir(elem)"> Excluir </a>
                 </span>
             </div>
         }@empty{

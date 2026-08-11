@@ -34,6 +34,8 @@ export class Formulario {
   email = '';
   cpf = 0.0;
   dataNascimento = '';
+  cidade = '';
+  uf = '';
 
   // Armazena o ID da pessoa em edição.
   idPessoaEdit = 0;
@@ -69,11 +71,11 @@ export class Formulario {
     this.pessoaService.adicionar(pessoa);
 
     // Limpa os campos do formulário.
-    this.limpaAtributos();
+    this.limparAtributos();
   }
 
   // Limpa os campos do formulário.
-  limpaAtributos() {
+  limparAtributos() {
     this.nome = '';
     this.email = '';
     this.cpf = 0.0;
@@ -149,7 +151,7 @@ export class Formulario {
     }
 
     // Limpa os campos após salvar.
-    this.limpaAtributos();
+    this.limparAtributos();
   }
 
   // Atualiza uma pessoa após confirmação.
